@@ -1,0 +1,2048 @@
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCities (20150625013855)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (15.6ms)[0m  [1mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "country_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+PG::DuplicateTable: ERROR:  relation "cities" already exists
+: CREATE TABLE "cities" ("id" serial primary key, "name" character varying, "country_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCities (20150625013855)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (12.1ms)[0m  [1mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "country_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_cities_on_country_id" ON "cities"  ("country_id")
+  [1m[36m (2.8ms)[0m  [1mALTER TABLE "cities" ADD CONSTRAINT "fk_rails_9561febd62"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+[0m
+PG::UndefinedTable: ERROR:  relation "countries" does not exist
+: ALTER TABLE "cities" ADD CONSTRAINT "fk_rails_9561febd62"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCountries (20150625020313)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (7.6ms)[0m  [1mCREATE TABLE "countries" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150625020313"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCities (20150625020357)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "cities" ("id" serial primary key, "name" character varying, "country_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX  "index_cities_on_country_id" ON "cities"  ("country_id")
+  [1m[36m (3.5ms)[0m  [1mALTER TABLE "cities" ADD CONSTRAINT "fk_rails_848a3f7741"
+FOREIGN KEY ("country_id")
+  REFERENCES "countries" ("id")
+[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150625020357"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'cities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'countries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "countries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "mlb"], ["created_at", "2015-06-25 02:10:54.448552"], ["updated_at", "2015-06-25 02:10:54.448552"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "countries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "nfl"], ["created_at", "2015-06-25 02:10:54.455737"], ["updated_at", "2015-06-25 02:10:54.455737"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "countries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "nba"], ["created_at", "2015-06-25 02:10:54.457863"], ["updated_at", "2015-06-25 02:10:54.457863"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "countries" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["name", "nhl"], ["created_at", "2015-06-25 02:10:54.460279"], ["updated_at", "2015-06-25 02:10:54.460279"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.4ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Atlanta"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.480133"], ["updated_at", "2015-06-25 02:10:54.480133"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.3ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Arizona"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.484307"], ["updated_at", "2015-06-25 02:10:54.484307"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Baltimore"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.487237"], ["updated_at", "2015-06-25 02:10:54.487237"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Boston"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.490046"], ["updated_at", "2015-06-25 02:10:54.490046"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.3ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Chi White Sox"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.493633"], ["updated_at", "2015-06-25 02:10:54.493633"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.6ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Chi Cubs"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.498443"], ["updated_at", "2015-06-25 02:10:54.498443"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Cincinnati"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.501675"], ["updated_at", "2015-06-25 02:10:54.501675"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Cleveland"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.504427"], ["updated_at", "2015-06-25 02:10:54.504427"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Colorado"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.506940"], ["updated_at", "2015-06-25 02:10:54.506940"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Detroit"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.509394"], ["updated_at", "2015-06-25 02:10:54.509394"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Houston"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.511717"], ["updated_at", "2015-06-25 02:10:54.511717"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Kansas City"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.514183"], ["updated_at", "2015-06-25 02:10:54.514183"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "LA Angels"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.517086"], ["updated_at", "2015-06-25 02:10:54.517086"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "LA Dodgers"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.519511"], ["updated_at", "2015-06-25 02:10:54.519511"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Miami"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.522761"], ["updated_at", "2015-06-25 02:10:54.522761"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Milwaukee"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.525389"], ["updated_at", "2015-06-25 02:10:54.525389"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Minnesota"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.527916"], ["updated_at", "2015-06-25 02:10:54.527916"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "NY Mets"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.530500"], ["updated_at", "2015-06-25 02:10:54.530500"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "NY Yankees"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.533086"], ["updated_at", "2015-06-25 02:10:54.533086"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Oakland"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.535825"], ["updated_at", "2015-06-25 02:10:54.535825"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Philadelphia"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.538855"], ["updated_at", "2015-06-25 02:10:54.538855"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Pittsburgh"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.542388"], ["updated_at", "2015-06-25 02:10:54.542388"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.3ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "San Diego"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.547645"], ["updated_at", "2015-06-25 02:10:54.547645"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "San Francisco"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.551069"], ["updated_at", "2015-06-25 02:10:54.551069"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Seattle"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.553758"], ["updated_at", "2015-06-25 02:10:54.553758"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "St. Louis"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.556596"], ["updated_at", "2015-06-25 02:10:54.556596"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tampa Bay"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.559316"], ["updated_at", "2015-06-25 02:10:54.559316"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Texas"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.562033"], ["updated_at", "2015-06-25 02:10:54.562033"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Toronto"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.564689"], ["updated_at", "2015-06-25 02:10:54.564689"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "mlb"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Washington"], ["country_id", 1], ["created_at", "2015-06-25 02:10:54.567230"], ["updated_at", "2015-06-25 02:10:54.567230"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Arizona Cardinals"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.569576"], ["updated_at", "2015-06-25 02:10:54.569576"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Atlanta Falcons"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.571898"], ["updated_at", "2015-06-25 02:10:54.571898"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.3ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Baltimore Ravens"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.575326"], ["updated_at", "2015-06-25 02:10:54.575326"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Buffalo Bills"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.579323"], ["updated_at", "2015-06-25 02:10:54.579323"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Carolina Panthers"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.582680"], ["updated_at", "2015-06-25 02:10:54.582680"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Chicago Bears"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.585508"], ["updated_at", "2015-06-25 02:10:54.585508"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Cincinnati Bengals"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.588093"], ["updated_at", "2015-06-25 02:10:54.588093"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Cleveland Browns"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.590621"], ["updated_at", "2015-06-25 02:10:54.590621"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Dallas Cowboys"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.593473"], ["updated_at", "2015-06-25 02:10:54.593473"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.3ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Denver Broncos"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.597977"], ["updated_at", "2015-06-25 02:10:54.597977"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Detroit Lions"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.600766"], ["updated_at", "2015-06-25 02:10:54.600766"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Green Bay Packers"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.603098"], ["updated_at", "2015-06-25 02:10:54.603098"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Houston Texans"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.605415"], ["updated_at", "2015-06-25 02:10:54.605415"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Indiannapolis Colts"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.607782"], ["updated_at", "2015-06-25 02:10:54.607782"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Jacksonville Jaguars"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.610619"], ["updated_at", "2015-06-25 02:10:54.610619"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Kansas City Chiefs"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.612934"], ["updated_at", "2015-06-25 02:10:54.612934"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Miami Dolphins"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.615257"], ["updated_at", "2015-06-25 02:10:54.615257"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Minnesota Vikings"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.617836"], ["updated_at", "2015-06-25 02:10:54.617836"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "New England Patriots"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.620829"], ["updated_at", "2015-06-25 02:10:54.620829"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "New Orleans Saints"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.623217"], ["updated_at", "2015-06-25 02:10:54.623217"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "NY Giants"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.625353"], ["updated_at", "2015-06-25 02:10:54.625353"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "NY Jets"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.628039"], ["updated_at", "2015-06-25 02:10:54.628039"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Oakland Raiders"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.630545"], ["updated_at", "2015-06-25 02:10:54.630545"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Philadelphia Eagles"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.633334"], ["updated_at", "2015-06-25 02:10:54.633334"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Pittsburgh Steelers"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.642946"], ["updated_at", "2015-06-25 02:10:54.642946"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "San Diego Chargers"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.646197"], ["updated_at", "2015-06-25 02:10:54.646197"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "San Francisco 49ers"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.650166"], ["updated_at", "2015-06-25 02:10:54.650166"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Seattle Seahawks"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.652658"], ["updated_at", "2015-06-25 02:10:54.652658"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "St. Louis Rams"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.655033"], ["updated_at", "2015-06-25 02:10:54.655033"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tampa Bay Buccaneers"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.657386"], ["updated_at", "2015-06-25 02:10:54.657386"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tennessee Titans"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.660624"], ["updated_at", "2015-06-25 02:10:54.660624"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nfl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Washington Redskins"], ["country_id", 2], ["created_at", "2015-06-25 02:10:54.662991"], ["updated_at", "2015-06-25 02:10:54.662991"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nba"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tennessee Titans"], ["country_id", 3], ["created_at", "2015-06-25 02:10:54.665033"], ["updated_at", "2015-06-25 02:10:54.665033"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nba"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Washington Redskins"], ["country_id", 3], ["created_at", "2015-06-25 02:10:54.667115"], ["updated_at", "2015-06-25 02:10:54.667115"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.2ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nhl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Tennessee Titans"], ["country_id", 4], ["created_at", "2015-06-25 02:10:54.669825"], ["updated_at", "2015-06-25 02:10:54.669825"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCountry Load (0.1ms)[0m  SELECT  "countries".* FROM "countries" WHERE "countries"."name" = $1 LIMIT 1  [["name", "nhl"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "cities" ("name", "country_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Washington Redskins"], ["country_id", 4], ["created_at", "2015-06-25 02:10:54.672627"], ["updated_at", "2015-06-25 02:10:54.672627"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 19:26:56 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/railties-4.2.0/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 22ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2015-06-24 19:27:04 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mCountry Load (1.0ms)[0m  SELECT  "countries".* FROM "countries"  ORDER BY "countries"."id" ASC LIMIT 1
+  [1m[36mCountry Load (0.3ms)[0m  [1mSELECT "countries".* FROM "countries"[0m
+  [1m[35mCity Load (0.8ms)[0m  SELECT "cities".* FROM "cities" WHERE (country_id = 1)
+  Rendered welcome/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 1889ms (Views: 1866.1ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 19:27:06 -0700
+
+
+Started GET "/welcome/update_cities?country_id=2&_=1435199226367" for 127.0.0.1 at 2015-06-24 19:27:09 -0700
+Processing by WelcomeController#update_cities as JS
+  Parameters: {"country_id"=>"2", "_"=>"1435199226367"}
+  [1m[36mCity Load (1.4ms)[0m  [1mSELECT "cities".* FROM "cities" WHERE (country_id = '2')[0m
+  Rendered cities/_city.html.erb (7.8ms)
+  Rendered welcome/update_cities.coffee (134.2ms)
+Completed 200 OK in 140ms (Views: 136.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/welcome/update_cities?country_id=3&_=1435199226368" for 127.0.0.1 at 2015-06-24 19:27:14 -0700
+Processing by WelcomeController#update_cities as JS
+  Parameters: {"country_id"=>"3", "_"=>"1435199226368"}
+  [1m[35mCity Load (0.6ms)[0m  SELECT "cities".* FROM "cities" WHERE (country_id = '3')
+  Rendered cities/_city.html.erb (0.4ms)
+  Rendered welcome/update_cities.coffee (98.1ms)
+Completed 200 OK in 104ms (Views: 101.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/welcome/update_cities?country_id=1&_=1435199226369" for 127.0.0.1 at 2015-06-24 19:27:17 -0700
+Processing by WelcomeController#update_cities as JS
+  Parameters: {"country_id"=>"1", "_"=>"1435199226369"}
+  [1m[36mCity Load (0.7ms)[0m  [1mSELECT "cities".* FROM "cities" WHERE (country_id = '1')[0m
+  Rendered cities/_city.html.erb (3.2ms)
+  Rendered welcome/update_cities.coffee (95.0ms)
+Completed 200 OK in 100ms (Views: 97.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/welcome/update_cities?country_id=4&_=1435199226370" for 127.0.0.1 at 2015-06-24 19:32:42 -0700
+Processing by WelcomeController#update_cities as JS
+  Parameters: {"country_id"=>"4", "_"=>"1435199226370"}
+  [1m[35mCity Load (1.3ms)[0m  SELECT "cities".* FROM "cities" WHERE (country_id = '4')
+  Rendered cities/_city.html.erb (0.8ms)
+  Rendered welcome/update_cities.coffee (112.4ms)
+Completed 200 OK in 118ms (Views: 114.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/welcome/update_cities?country_id=1&_=1435199226371" for 127.0.0.1 at 2015-06-24 19:32:46 -0700
+Processing by WelcomeController#update_cities as JS
+  Parameters: {"country_id"=>"1", "_"=>"1435199226371"}
+  [1m[36mCity Load (0.6ms)[0m  [1mSELECT "cities".* FROM "cities" WHERE (country_id = '1')[0m
+  Rendered cities/_city.html.erb (2.7ms)
+  Rendered welcome/update_cities.coffee (102.3ms)
+Completed 200 OK in 107ms (Views: 105.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:03:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 199ms (Views: 188.7ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20150625050423)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (7.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150625050423"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'cities'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'countries'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:08:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 167ms (Views: 158.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new_user_registration" for 127.0.0.1 at 2015-06-24 22:08:19 -0700
+
+ActionController::RoutingError (No route matches [GET] "/new_user_registration"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (43.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (18.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (39.0ms)
+
+
+Started GET "/welcome_index" for 127.0.0.1 at 2015-06-24 22:09:12 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_index"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (27.4ms)
+
+
+Started GET "/welcome_index_path" for 127.0.0.1 at 2015-06-24 22:09:18 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_index_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (26.8ms)
+
+
+Started GET "/new_user/registration" for 127.0.0.1 at 2015-06-24 22:10:30 -0700
+
+ActionController::RoutingError (No route matches [GET] "/new_user/registration"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.7ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (26.3ms)
+
+
+Started GET "/new/user_registration" for 127.0.0.1 at 2015-06-24 22:10:50 -0700
+
+ActionController::RoutingError (No route matches [GET] "/new/user_registration"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (11.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (24.9ms)
+
+
+Started GET "/new/user/registration" for 127.0.0.1 at 2015-06-24 22:10:58 -0700
+
+ActionController::RoutingError (No route matches [GET] "/new/user/registration"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.7ms)
+
+
+Started GET "/welcome/index" for 127.0.0.1 at 2015-06-24 22:11:05 -0700
+Processing by WelcomeController#index as HTML
+  [1m[35mCountry Load (1.1ms)[0m  SELECT  "countries".* FROM "countries"  ORDER BY "countries"."id" ASC LIMIT 1
+  [1m[36mCountry Load (0.3ms)[0m  [1mSELECT "countries".* FROM "countries"[0m
+  [1m[35mCity Load (0.9ms)[0m  SELECT "cities".* FROM "cities" WHERE (country_id = 1)
+  Rendered welcome/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 55ms (Views: 27.3ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/user/sign_up" for 127.0.0.1 at 2015-06-24 22:11:49 -0700
+
+ActionController::RoutingError (No route matches [GET] "/user/sign_up"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (27.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-06-24 22:12:00 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (20.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (25.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-06-24 22:12:02 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (4.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 55ms (Views: 42.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2015-06-24 22:12:49 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sxd9p/xJWXXzmmvOPRST2r5r8qUqyxxfZo/was57XC4LkZ7INWLX/myumpryiguV6/fsFQpT8nja3ios/lOcZg==", "user"=>{"email"=>"ztredded@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'ztredded@gmail.com' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "ztredded@gmail.com"], ["encrypted_password", "$2a$10$dSIF6HnD57po7wDXJSi8..PZAySHqpcn3Do524lQafxK20GJkARlG"], ["created_at", "2015-06-25 05:12:49.899648"], ["updated_at", "2015-06-25 05:12:49.899648"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-06-25 05:12:49.902907"], ["current_sign_in_at", "2015-06-25 05:12:49.902907"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-06-25 05:12:49.903962"], ["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 105ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:12:49 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 31ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:13:22 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (26.7ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (27.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-06-24 22:13:56 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (26.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:14:11 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (26.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:14:19 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:14:19 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 20ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2015-06-24 22:15:23 -0700
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered devise/registrations/edit.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 34ms (Views: 31.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:15:51 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (27.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:28:47 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:28:47 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 167ms (Views: 166.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_out" for 127.0.0.1 at 2015-06-24 22:28:58 -0700
+
+ActionController::RoutingError (No route matches [GET] "/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (34.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (29.3ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:29:45 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (25.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:34:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 33ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:34:23 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 156ms (Views: 155.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2015-06-24 22:34:30 -0700
+
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (34.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (32.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:40:03 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome_home_path" for 127.0.0.1 at 2015-06-24 22:40:28 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_home_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (25.5ms)
+
+
+Started GET "/welcome_home_path" for 127.0.0.1 at 2015-06-24 22:40:28 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_home_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (19.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (35.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:44:15 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 3336ms (Views: 3293.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-dc943bdc9dcca71582e11f939e6f2ea9226c2e21a69a67433bf3fcbaf082e141.css?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:44:19 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:46:34 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1538ms (Views: 1537.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/custom.self-ae8f457d36bec6eb1619013300fb51da71dce12109e0ebbc1b5dcd3d916fce82.css?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:46:35 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 38ms (Views: 37.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-ae8f457d36bec6eb1619013300fb51da71dce12109e0ebbc1b5dcd3d916fce82.css?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:32 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/custom.self-ae8f457d36bec6eb1619013300fb51da71dce12109e0ebbc1b5dcd3d916fce82.css?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:47:52 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:50:01 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 52ms
+
+ActionView::Template::Error (undefined local variable or method `user_sign_in_path' for #<#<Class:0x007faf269837f8>:0x007faf2c333780>):
+    16:       <ul class="nav navbar-nav navbar-right">
+    17:         <li><%= link_to "Home",   'welcome_home_path' %></li>
+    18:         <li><%= link_to "Help",   '#' %></li>
+    19:         <li><%= link_to "Log in", user_sign_in_path %></li>
+    20:       </ul>
+    21:     </nav>
+    22:   </div>
+  app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb__2024857841489729487_70195168795000'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (16.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (37.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:50:18 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (undefined local variable or method `users_sign_in_path' for #<#<Class:0x007faf269837f8>:0x007faf28ac4c50>):
+    16:       <ul class="nav navbar-nav navbar-right">
+    17:         <li><%= link_to "Home",   'welcome_home_path' %></li>
+    18:         <li><%= link_to "Help",   '#' %></li>
+    19:         <li><%= link_to "Log in", users_sign_in_path %></li>
+    20:       </ul>
+    21:     </nav>
+    22:   </div>
+  app/views/layouts/application.html.erb:19:in `_app_views_layouts_application_html_erb__2024857841489729487_70195139290800'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.8ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (28.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 54ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-ae8f457d36bec6eb1619013300fb51da71dce12109e0ebbc1b5dcd3d916fce82.css?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:51:28 -0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:51:30 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 24ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:51:30 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 37ms (Views: 36.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/welcome_home_path" for 127.0.0.1 at 2015-06-24 22:52:40 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_home_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.7ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (11.8ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (25.1ms)
+
+
+Started GET "/welcome_home_path" for 127.0.0.1 at 2015-06-24 22:52:40 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_home_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (25.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (27.2ms)
+
+
+Started GET "/welcome_home_path" for 127.0.0.1 at 2015-06-24 22:53:08 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_home_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.8ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (12.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (25.5ms)
+
+
+Started GET "/welcome_home_path" for 127.0.0.1 at 2015-06-24 22:53:08 -0700
+
+ActionController::RoutingError (No route matches [GET] "/welcome_home_path"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (30.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:54:15 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (undefined local variable or method `root' for #<#<Class:0x007faf269837f8>:0x007faf2a75f298>):
+    14:       <%= link_to "GAMECRUNCH", '#', id: "logo" %>
+    15: 
+    16:       <ul class="nav navbar-nav navbar-right">
+    17:         <li><%= link_to "Home",   root %></li>
+    18:         <li><%= link_to "Log Out", destroy_user_session_path %></li>
+    19:         <li><%= link_to "Log In", new_user_session_path %></li>
+    20:       </ul>
+  app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2024857841489729487_70195154205600'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (17.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (36.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:54:17 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (undefined local variable or method `root' for #<#<Class:0x007faf269837f8>:0x007faf26669a40>):
+    14:       <%= link_to "GAMECRUNCH", '#', id: "logo" %>
+    15: 
+    16:       <ul class="nav navbar-nav navbar-right">
+    17:         <li><%= link_to "Home",   root %></li>
+    18:         <li><%= link_to "Log Out", destroy_user_session_path %></li>
+    19:         <li><%= link_to "Log In", new_user_session_path %></li>
+    20:       </ul>
+  app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2024857841489729487_70195154205600'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (13.8ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (28.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 39ms (Views: 38.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-ae8f457d36bec6eb1619013300fb51da71dce12109e0ebbc1b5dcd3d916fce82.css?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:54:31 -0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:54:34 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:54:34 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:54:36 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (11.5ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (25.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:54:36 -0700
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/elliottchavis/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (11.9ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/elliottchavis/.rvm/gems/ruby-2.1.2/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (26.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:56:29 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 37ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:56:31 -0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:56:31 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 36ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:56:33 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9hWLyLQkuJ3XOGFM0puthqE9f5qmn7GVlSCPaGq5ZhVOk2infQ82FkgMkBgdBTXJ9KFhKoYHX7IpcVUuWpGmXQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:56:33 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:56:38 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (9.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 79ms (Views: 73.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:56:45 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 37ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/custom.self-ae8f457d36bec6eb1619013300fb51da71dce12109e0ebbc1b5dcd3d916fce82.css?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/welcome.self-cfc10260f6e2c8f36f00134932bca26b4d5336bec632f1c569cb53222a91e8e4.js?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for 127.0.0.1 at 2015-06-24 22:58:42 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:58:49 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:58:52 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 38ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:58:52 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 37ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:58:55 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (4.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 49ms (Views: 47.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:58:56 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 123ms (Views: 122.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:59:25 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (4.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-06-24 22:59:31 -0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Kmrnrj9HNemS41T+8J5OjmDSEIdK2Bz54eC5LAOkyriuIoSjH3oTPy6tpw2GNZvWLEM2Kb0ZiUe2jRjlaytI3g==", "user"=>{"email"=>"ztredded@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["email", "ztredded@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4  [["current_sign_in_at", "2015-06-25 05:59:31.687869"], ["sign_in_count", 2], ["updated_at", "2015-06-25 05:59:31.689199"], ["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 91ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:59:31 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 38ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-06-24 22:59:34 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ArIGWnIuubkyOGLl1Q3FwCjN21rs4bcROICcT/sjN+G+2quk5ee26Y75o1hzwbVLnK+ytNpSox8gt7vV9vTcjg=="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-24 22:59:34 -0700
+Processing by WelcomeController#home as HTML
+  Rendered welcome/home.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.0ms)
