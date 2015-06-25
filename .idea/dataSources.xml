@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3714422486">
+    <data-source source="LOCAL" name="Rails gamecrunch: development" uuid="56bfc91a-48db-418d-84be-0a0c53917504">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:gamecrunch_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails gamecrunch: test" uuid="bda3097e-107c-4944-914d-6a81b74aff37">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:gamecrunch_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails gamecrunch: production" uuid="a2b1d9f5-1c6d-405b-8ddb-595898caf335">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:gamecrunch_production</jdbc-url>
+      <user-name>gamecrunch</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfeddfebdfe7dfefdfe9dff8dfffdfe4dfe9dfe2dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

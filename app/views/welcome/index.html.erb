@@ -1,0 +1,7 @@
+<%= form_for :trip, url: {action: "show"}, html: {method: "get"} do |f| %>
+    <%= f.select :country_id, options_for_select(@countries.collect { |country|
+      [country.name.titleize, country.id] }, 1), {}, { id: 'countries_select' } %>
+    <%= f.select :city_id, options_for_select(@cities.collect { |city|
+      [city.name.titleize, city.id] }, 0), {}, { id: 'cities_select' } %>
+    <%= f.submit "Go!" %>
+<% end %>
