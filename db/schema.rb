@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150625050423) do
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
+    t.string   "team"
+    t.string   "league"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",          default: 0,  null: false
