@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'welcome/update_cities', as: 'update_cities'
   get 'welcome/show'
+  get 'welcome/mlb'
   root 'welcome#home'
 
   devise_scope :user do

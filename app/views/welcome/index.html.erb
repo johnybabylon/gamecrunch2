@@ -4,4 +4,6 @@
     <%= f.select :city_id, options_for_select(@cities.collect { |city|
       [city.name.titleize, city.id] }, 0), {}, { id: 'cities_select' } %>
     <%= f.submit "Go!" %>
+
+
 <% end %>
