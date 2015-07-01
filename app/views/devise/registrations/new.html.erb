@@ -3,10 +3,18 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+    <div class="field">
+      <%= f.label :number %>
+      <em>(add 1 + area code w/ no spaces; i.e. 15555555555)</em><br/>
+      <%= f.number_field :number %>
+    </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
+
+
 
   <div class="field">
     <%= f.label :password %>

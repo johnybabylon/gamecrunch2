@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
+
   devise_for :users, controllers: { sessions: 'users/sessions'}
+
   get 'welcome/index'
   get 'welcome/update_cities', as: 'update_cities'
   get 'welcome/show'
