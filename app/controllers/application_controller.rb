@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_update_path_for(resource)
-    redirect_to welcome_index_path
+    welcome_index_path(resource)
   end
 
 end

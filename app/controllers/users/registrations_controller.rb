@@ -51,6 +51,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
      params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :phone)
    end
 
+ def after_update_path_for(resource)
+   welcome_index_path(resource)
+ end
+
  #def update_sanitized_params
  #  devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation, :number)}
  #end

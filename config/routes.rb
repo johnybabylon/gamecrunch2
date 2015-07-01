@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     delete "/logout" => "devise/sessions#destroy"
   end
 
+  as :user do
+    get 'welcome/index', :to => 'devise/registrations#edit', :as => :user_root
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
