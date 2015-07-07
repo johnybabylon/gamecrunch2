@@ -9,9 +9,9 @@
 <body>
 
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
+    <div class="container">
     <nav>
-      <%= link_to "GAMECRUNCH", root_url %>
+      <%= link_to "GAMECRUNCH", root_url, id: 'logo' %>
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_url %></li>
@@ -19,16 +19,14 @@
         <li><%= link_to "Log In", new_user_session_path %></li>
       </ul>
     </nav>
-  </div>
+    </div>
 </header>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 
-<div class="container">
 <%= yield %>
-</div>
 
 </body>
 </html>

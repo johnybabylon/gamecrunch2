@@ -44,7 +44,7 @@ mlbteams = Hash.new{|teams, key| teams[key] = []}
         user.message << user.email
         user.message << '! '
         user.message << user.team
-        user.message << ' plays at '
+        user.message << ' plays today @ '
         user.message << value.last
 
         client = Twilio::REST::Client.new 'ACc37abcdd6d04384260291eb1f7075584', '8ef5aec33725886af6b1f9981bf86c0e'
@@ -60,11 +60,11 @@ mlbteams = Hash.new{|teams, key| teams[key] = []}
             user.message << user.email
             user.message << '! '
             user.message << user.team
-            user.message << ' plays at '
+            user.message << ' plays at today '
             user.message << value.last
 
             client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
-            message = client.messages.create from: '15102300477', to: user.phone, body: user.team
+            message = client.messages.create from: '15102300477', to: user.phone, body: user.message
 
             print "\n#{user.team} play at #{value.last}\n"
           end

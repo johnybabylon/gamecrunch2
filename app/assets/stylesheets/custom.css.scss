@@ -5,7 +5,7 @@
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
+
 }
 
 section {
@@ -14,6 +14,16 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+.logo {
+  color: antiquewhite;
+}
+
+.jumbotron {
+  background-image: url('gamecrunch.jpeg');
+  background-size: cover;
+  height: 400px;
 }
 
 .center {
