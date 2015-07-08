@@ -4,8 +4,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-
+.navbar {
+  margin-bottom: 0;
 }
 
 section {
@@ -16,8 +16,20 @@ textarea {
   resize: vertical;
 }
 
-.logo {
-  color: antiquewhite;
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: lowercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .jumbotron {

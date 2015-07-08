@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 
+  layout false, only: [:home]
+
   def home
 
   end
