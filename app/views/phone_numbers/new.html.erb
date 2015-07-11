@@ -1,7 +1,10 @@
 </br>
 <div id="send-pin">
   <h4>What's your phone number?</h4>
+  <em>(add 1 + area code w/ no spaces; i.e. 15555555555)</em><br/>
   <%= form_for @phone_number, remote: true do |f| %>
+      <%= f.error_messages %>
+      <%= @phone_number.errors %>
       <div class="form-group">
         <%= f.text_field :phone_number %>
       </div>

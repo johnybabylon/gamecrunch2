@@ -1,5 +1,6 @@
 class PhoneNumbersController < ApplicationController
 
+
   def new
     @phone_number = PhoneNumber.new
   end
@@ -16,14 +17,28 @@ class PhoneNumbersController < ApplicationController
   def verify
     @phone_number = PhoneNumber.find_by(phone_number: params[:hidden_phone_number])
 
+
+    #write number to file bc i couldn't get it into the next controller with instance variable!!!
+    cell = ''
+    cell = params[:hidden_phone_number]
+    File.open('public/cell.txt', 'w') {|file| file.write(cell)}
+
+
     if @phone_number.pin == (params[:pin2])
       @phone_number.verified = true
-    else
-      @phone_number.verified  = false
-      end
+
     respond_to do |format|
-      format.js
+      format.js { render :js => "window.location = '/users/sign_up'"}
     end
+      else
+      @phone_number.verified  = false
+      respond_to do |format|
+        format.js
+
+    end
+
+    end
+
   end
 
 end

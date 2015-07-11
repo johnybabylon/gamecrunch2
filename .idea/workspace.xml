@@ -13,7 +13,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/gamecrunch@db_setup__gamecrunch.coverage" NAME="db:setup: gamecrunch Coverage Results" MODIFIED="1435307517505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="gamecrunch" />
-    <SUITE FILE_PATH="coverage/gamecrunch@Development__gamecrunch.coverage" NAME="Development: gamecrunch Coverage Results" MODIFIED="1436585352461" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="gamecrunch" />
+    <SUITE FILE_PATH="coverage/gamecrunch@Development__gamecrunch.coverage" NAME="Development: gamecrunch Coverage Results" MODIFIED="1436626698750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="gamecrunch" />
     <SUITE FILE_PATH="coverage/gamecrunch@db_rollback__gamecrunch.coverage" NAME="db:rollback: gamecrunch Coverage Results" MODIFIED="1435709877765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="gamecrunch" />
     <SUITE FILE_PATH="coverage/gamecrunch@db_migrate__gamecrunch.coverage" NAME="db:migrate: gamecrunch Coverage Results" MODIFIED="1435607084263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="gamecrunch" />
     <SUITE FILE_PATH="coverage/gamecrunch@db_schema_load__gamecrunch.coverage" NAME="db:schema:load: gamecrunch Coverage Results" MODIFIED="1435305071145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="gamecrunch" />
@@ -31,28 +31,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="webscrape.rake" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/tasks/sports/webscrape.rake">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="25" selection-start="1673" selection-end="1673" vertical-scroll-proportion="0.0" vertical-offset="631" max-vertical-offset="1080">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1260">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phone_numbers_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="phone_numbers_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/phone_numbers_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="37" selection-start="609" selection-end="609" vertical-scroll-proportion="0.701559" vertical-offset="0" max-vertical-offset="525">
+            <state line="24" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="750">
+              <folding>
+                <marker date="1436625318000" expanded="true" signature="212:319" placeholder="..." />
+                <marker date="1436625318000" expanded="true" signature="343:433" placeholder="..." />
+                <marker date="1436625318000" expanded="true" signature="458:679" placeholder="..." />
+                <marker date="1436625318000" expanded="true" signature="702:831" placeholder="..." />
+                <marker date="1436625318000" expanded="true" signature="856:942" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome/home.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="5" selection-start="965" selection-end="965" vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="1050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registrations_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="0" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
               <folding />
             </state>
           </provider>
@@ -61,52 +76,16 @@
       <file leaf-file-name="phone_number.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/phone_number.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="5" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+            <state line="5" column="18" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="verify.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/verify.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="29" selection-start="369" selection-end="369" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="255">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="24" selection-start="1071" selection-end="1071" vertical-scroll-proportion="-17.5" vertical-offset="165" max-vertical-offset="915">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/create.js.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="18" selection-start="138" selection-end="138" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="32" selection-start="535" selection-end="535" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="465">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mlb_compare.rake" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/tasks/sports/mlb_compare.rake">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="38" selection-start="1704" selection-end="1704" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1275">
+            <state line="14" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.49411765" vertical-offset="0" max-vertical-offset="510">
               <folding />
             </state>
           </provider>
@@ -138,31 +117,34 @@
         <option value="$PROJECT_DIR$/lib/tasks/sports/mlb_compare.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/compare.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users/unlocks_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/show.html.erb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/secrets.yml" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css.scss" />
         <option value="$PROJECT_DIR$/app/controllers/welcome_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/welcome/home.html.erb" />
         <option value="$PROJECT_DIR$/db/user.rb" />
-        <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/lib/tasks/sports/mlb_compare.rake" />
         <option value="$PROJECT_DIR$/lib/tasks/sports/webscrape.rake" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/phone_numbers.scss" />
         <option value="$PROJECT_DIR$/app/views/phone_numbers/verify.js.erb" />
-        <option value="$PROJECT_DIR$/app/models/phone_number.rb" />
         <option value="$PROJECT_DIR$/app/views/phone_numbers/create.js.erb" />
-        <option value="$PROJECT_DIR$/app/views/phone_numbers/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/lib/cell.rb" />
+        <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/app/controllers/phone_numbers_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/welcome/home.html.erb" />
+        <option value="$PROJECT_DIR$/public/cell.txt" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/users/registrations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/phone_number.rb" />
+        <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/views/phone_numbers/new.html.erb" />
       </list>
     </option>
   </component>
@@ -292,11 +274,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/db" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts" />
       <recent name="$PROJECT_DIR$/lib/tasks/sports" />
-      <recent name="$PROJECT_DIR$/app/views/welcome" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/assets/images" />
@@ -658,28 +640,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20150629194426_create_mlbs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="12" selection-start="55" selection-end="55" vertical-scroll-proportion="0.03640777" vertical-offset="0" max-vertical-offset="412">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/mlb.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.4379562" vertical-offset="0" max-vertical-offset="411" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="412" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/passwords/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="412" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/mlb.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="59" selection-end="59" vertical-scroll-proportion="0.067975834" vertical-offset="0" max-vertical-offset="662" />
@@ -717,16 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/update_cities.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="64" selection-start="92" selection-end="92" vertical-scroll-proportion="0.03177966" vertical-offset="0" max-vertical-offset="472" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="0.06696428" vertical-offset="0" max-vertical-offset="448" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="14" selection-start="3317" selection-end="3317" vertical-scroll-proportion="0.80932206" vertical-offset="803" max-vertical-offset="1320" />
@@ -735,13 +685,6 @@
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="12" selection-start="1713" selection-end="1713" vertical-scroll-proportion="0.80932206" vertical-offset="323" max-vertical-offset="840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="572" selection-end="572" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20150701071329_add_message_to_users.rb">
@@ -764,11 +707,6 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/welcome.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="449" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="522" selection-end="522" vertical-scroll-proportion="0.73170733" vertical-offset="0" max-vertical-offset="300" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/bootstrap.css">
@@ -820,23 +758,6 @@
         <state line="15" column="0" selection-start="478" selection-end="478" vertical-scroll-proportion="0.54611653" vertical-offset="0" max-vertical-offset="780" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="10" selection-start="309" selection-end="309" vertical-scroll-proportion="0.31764707" vertical-offset="0" max-vertical-offset="645" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="333" selection-end="333" vertical-scroll-proportion="0.31764707" vertical-offset="0" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users/confirmations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
@@ -845,20 +766,6 @@
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="797" selection-end="797" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1374" selection-end="1374" vertical-scroll-proportion="1.779661" vertical-offset="0" max-vertical-offset="1140">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="4" selection-start="248" selection-end="248" vertical-scroll-proportion="0.31779662" vertical-offset="0" max-vertical-offset="472">
           <folding />
         </state>
       </provider>
@@ -882,27 +789,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="302" selection-end="302" vertical-scroll-proportion="0.26726058" vertical-offset="0" max-vertical-offset="449">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="706" selection-end="706" vertical-scroll-proportion="0.701559" vertical-offset="0" max-vertical-offset="449">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/phone_numbers.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="1" selection-start="229" selection-end="229" vertical-scroll-proportion="0.1764706" vertical-offset="0" max-vertical-offset="425">
@@ -917,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="24" selection-start="1071" selection-end="1071" vertical-scroll-proportion="-17.5" vertical-offset="165" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/verify.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="29" selection-start="369" selection-end="369" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="255">
@@ -931,30 +810,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/update_cities.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="64" selection-start="92" selection-end="92" vertical-scroll-proportion="0.033407573" vertical-offset="0" max-vertical-offset="449">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="20" selection-start="522" selection-end="522" vertical-scroll-proportion="0.49411765" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/mlb.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.42352942" vertical-offset="0" max-vertical-offset="425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="105" selection-end="105" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users/sessions_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="4" selection-start="248" selection-end="248" vertical-scroll-proportion="0.33184856" vertical-offset="1" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users/confirmations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/create.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="138" selection-end="138" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
+        <state line="3" column="18" selection-start="138" selection-end="138" vertical-scroll-proportion="0.105882354" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/new.html.erb">
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="32" selection-start="535" selection-end="535" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="465">
+        <state line="21" column="0" selection-start="971" selection-end="971" vertical-scroll-proportion="0.701559" vertical-offset="0" max-vertical-offset="540">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/phone_number.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="422" selection-end="422" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+        <state line="9" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="-0.16926503" vertical-offset="211" max-vertical-offset="660">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/phone_numbers_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="37" selection-start="609" selection-end="609" vertical-scroll-proportion="0.701559" vertical-offset="0" max-vertical-offset="525">
+        <state line="24" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0" vertical-offset="113" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="628" selection-end="628" vertical-scroll-proportion="0.56792873" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="15" selection-start="883" selection-end="883" vertical-scroll-proportion="0.88235295" vertical-offset="0" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/shared/_links.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/cell.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="750">
+          <folding>
+            <marker date="1436625318000" expanded="true" signature="212:319" placeholder="..." />
+            <marker date="1436625318000" expanded="true" signature="343:433" placeholder="..." />
+            <marker date="1436625318000" expanded="true" signature="458:679" placeholder="..." />
+            <marker date="1436625318000" expanded="true" signature="702:831" placeholder="..." />
+            <marker date="1436625318000" expanded="true" signature="856:942" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="5" selection-start="965" selection-end="965" vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.7224771" vertical-offset="300" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/phone_number.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="18" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/phone_numbers/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="433" selection-end="433" vertical-scroll-proportion="0.49411765" vertical-offset="0" max-vertical-offset="510">
           <folding />
         </state>
       </provider>

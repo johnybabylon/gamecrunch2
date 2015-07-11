@@ -5,7 +5,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-     redirect_to welcome_index_path
+
+
+
+    redirect_to welcome_index_path
    end
 
   # POST /resource
@@ -54,6 +57,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
  def after_update_path_for(resource)
    welcome_index_path(resource)
  end
+
+
 
  #def update_sanitized_params
  #  devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation, :number)}

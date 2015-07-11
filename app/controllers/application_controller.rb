@@ -20,4 +20,6 @@ class ApplicationController < ActionController::Base
     welcome_index_path(resource)
   end
 
+
+
 end

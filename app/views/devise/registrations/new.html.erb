@@ -3,11 +3,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+    <% @cell = File.read('public/cell.txt') %>
+
     <div class="field">
-      <%= f.label :number %>
-      <em>(add 1 + area code w/ no spaces; i.e. 15555555555)</em><br/>
-      <%= f.text_field :phone %>
+      <%= f.label :number %></br>
+      <%= f.text_field :phone, value: @cell, disable: true%>
+
     </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -31,7 +34,11 @@
 
   <div class="actions">
     <%= f.submit "Sign up" %>
+    <% File.truncate('public/cell.txt', 0) %>
+
   </div>
+
+
 <% end %>
 
 <%= render "devise/shared/links" %>

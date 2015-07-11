@@ -20,6 +20,7 @@ gem 'bootstrap-sass'
 
 gem 'twilio-ruby', '~> 3.12'
 
+gem 'dynamic_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
