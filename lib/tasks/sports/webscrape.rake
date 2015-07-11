@@ -47,7 +47,17 @@ namespace :sports do
     end                  # method.  So I decided to just use THIS code here to my left and in the hash use .last method
     # to get the time.  I can use span.meta  OR span.time
 
-    @mlb = Mlb.new
+
+
+
+    #set the model
+    @mlb = Mlb.find(1)
+
+    #clear previous schedule
+    @mlb.team.clear
+    @mlb.save
+
+    #update new schedule
     @mlb.team = @mlbteams
     @mlb.save
 

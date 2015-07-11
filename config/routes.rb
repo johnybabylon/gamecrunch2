@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   as :user do
     get 'welcome/index', :to => 'devise/registrations#edit', :as => :user_root
   end
+
+
+  resources :phone_numbers, only: [:new, :create]
+  post 'phone_numbers/verify' => "phone_numbers#verify"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
