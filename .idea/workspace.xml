@@ -67,10 +67,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="35" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.6991525" vertical-offset="75" max-vertical-offset="1365">
+            <state line="27" column="35" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1365">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="69" selection-start="419" selection-end="419" vertical-scroll-proportion="0.28235295" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -111,7 +120,6 @@
         <option value="$PROJECT_DIR$/lib/tasks/sports/mlb_compare.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/compare.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users/unlocks_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/show.html.erb" />
         <option value="$PROJECT_DIR$/config/secrets.yml" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
@@ -142,6 +150,7 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/lib/tasks/scheduler.rake" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
       </list>
     </option>
   </component>
@@ -211,7 +220,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="welcome" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -225,11 +242,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="environments" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamecrunch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamecrunch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -733,11 +764,6 @@
         <state line="1" column="64" selection-start="92" selection-end="92" vertical-scroll-proportion="0.033407573" vertical-offset="0" max-vertical-offset="449" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="522" selection-end="522" vertical-scroll-proportion="0.49411765" vertical-offset="0" max-vertical-offset="425" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/welcome/mlb.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="0" selection-start="125" selection-end="125" vertical-scroll-proportion="0.42352942" vertical-offset="0" max-vertical-offset="425" />
@@ -760,7 +786,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="-0.16926503" vertical-offset="211" max-vertical-offset="660" />
+        <state line="9" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="-0.16926503" vertical-offset="211" max-vertical-offset="660">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
@@ -915,7 +943,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="35" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.6991525" vertical-offset="75" max-vertical-offset="1365">
+        <state line="27" column="35" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1365">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="69" selection-start="419" selection-end="419" vertical-scroll-proportion="0.28235295" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>

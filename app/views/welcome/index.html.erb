@@ -1,4 +1,6 @@
+<% if @user.team.present? %>
 <h3>Your team is <%= @user.team %> </h3></br>
+    <% end %>
 
 <h5>Change Team:</h5>
 <%= form_for :trip, url: {action: "show"}, html: {method: "get"} do |f| %>
