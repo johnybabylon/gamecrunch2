@@ -32,7 +32,7 @@ mlbteams = Hash.new{|teams, key| teams[key] = []}
 # assign it db info
 @mlbteams = Mlb.find(1).team  #get Mlb.team schedule from model, assign to var
 
-
+# get model to hold users whose teams play today
 
   @user_array.each do |user|
     @mlbteams.each_pair do|key,value|
@@ -51,10 +51,12 @@ mlbteams = Hash.new{|teams, key| teams[key] = []}
         #client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
         message = client.messages.create from: '14159172576', to: user.phone, body: user.message
 
-        print "\n#{user.team} play at #{value.last}\n"
+        print "\n#{user.team} plays at #{value.last}\n"
+
 
       else
           if value.second == user.team
+
 
             user.message = 'Hi '
             user.message << user.email
@@ -63,10 +65,14 @@ mlbteams = Hash.new{|teams, key| teams[key] = []}
             user.message << ' plays at today '
             user.message << value.last
 
-            client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+            client = Twilio::REST::Client.new 'ACc37abcdd6d04384260291eb1f7075584', '8ef5aec33725886af6b1f9981bf86c0e'
+            #client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
             message = client.messages.create from: '14159172576', to: user.phone, body: user.message
 
             print "\n#{user.team} play at #{value.last}\n"
+
+            @today = user
+
           end
       end
     end

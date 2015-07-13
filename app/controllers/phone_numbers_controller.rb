@@ -3,6 +3,18 @@ class PhoneNumbersController < ApplicationController
 
   def new
     @phone_number = PhoneNumber.new
+
+    @read_file=File.open("public/twilio_error.txt").read
+
+
+     if File.readlines("public/twilio_error.txt").size > 0
+       logger.info "this iserror"
+    flash[:notice] = @read_file
+     render "new"
+    end
+
+
+
   end
 
   def create

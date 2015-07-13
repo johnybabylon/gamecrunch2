@@ -18,7 +18,12 @@ class PhoneNumber < ActiveRecord::Base
         from: '14159172576',
         body: "Your PIN is #{pin}"
     )
-    save
+
+      rescue Twilio::REST::RequestError => e
+      File.open('public/twilio_error.txt', 'w') {|file| file.write(e.message)}
+      raise
+
+      save
   end
 
   def verify(entered_pin)
