@@ -79,7 +79,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="45" selection-start="125" selection-end="125" vertical-scroll-proportion="0.105882354" vertical-offset="0" max-vertical-offset="425">
+            <state line="19" column="55" selection-start="649" selection-end="649" vertical-scroll-proportion="0.67058825" vertical-offset="0" max-vertical-offset="425">
               <folding />
             </state>
           </provider>
@@ -149,8 +149,8 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/lib/tasks/scheduler.rake" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
+        <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
       </list>
     </option>
   </component>
@@ -963,7 +963,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="45" selection-start="125" selection-end="125" vertical-scroll-proportion="0.105882354" vertical-offset="0" max-vertical-offset="425">
+        <state line="19" column="55" selection-start="649" selection-end="649" vertical-scroll-proportion="0.67058825" vertical-offset="0" max-vertical-offset="425">
           <folding />
         </state>
       </provider>

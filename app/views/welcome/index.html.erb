@@ -1,4 +1,4 @@
-<% if @user.team.null? %>
+<% if @user.team.blank? %>
       <h3>You're not following a team</h3>
 <% else %>
     <h3>You're team is <%= @user.team %></h3>
