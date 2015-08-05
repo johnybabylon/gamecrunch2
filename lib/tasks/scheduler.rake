@@ -141,6 +141,5 @@ task mlb_compare: :environment do
   end
 end
 
-end
 
 
