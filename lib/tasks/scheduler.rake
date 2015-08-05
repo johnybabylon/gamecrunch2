@@ -51,6 +51,12 @@ require 'rubygems'
 
 
     #set the model
+
+    if Mlb empty?
+      @mlb = Mlb.new
+      @mlb.team = @mlbteams
+      @mlb.save
+    else
     @mlb = Mlb.find(1)
 
     #clear previous schedule
