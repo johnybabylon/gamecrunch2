@@ -49,13 +49,13 @@ require 'rubygems'
 
 
 
-    @mlb = Mlb.new
-    #set the model
-    #@mlb = Mlb.find(1)
+
+    # set model
+    @mlb = Mlb.find(1)
 
     #clear previous schedule
-   # @mlb.team.clear
-   # @mlb.save
+    @mlb.team.clear
+    @mlb.save
 
     #update new schedule
     @mlb.team = @mlbteams
