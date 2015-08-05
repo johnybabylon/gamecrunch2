@@ -16,5 +16,12 @@
 
 <% end %>
 
+</br>
+<% if @user.phone.blank? %>
+    <h5>You haven't added a phone number! Please add one in 'Edit Info' below</h5>
+    <% else %>
+    <h5>Phone: </h5><%= @user.phone %>
+<% end %>
+
 </br></br>
 <%= link_to 'Edit Info', edit_user_registration_path %>
