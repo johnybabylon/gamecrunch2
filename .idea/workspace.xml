@@ -43,7 +43,7 @@
       <file leaf-file-name="scheduler.rake" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/tasks/scheduler.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="4" selection-start="4052" selection-end="4052" vertical-scroll-proportion="0.8865815" vertical-offset="1665" max-vertical-offset="2370">
+            <state line="69" column="0" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.83865815" vertical-offset="510" max-vertical-offset="2370">
               <folding />
             </state>
           </provider>
@@ -902,7 +902,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/scheduler.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="4" selection-start="4052" selection-end="4052" vertical-scroll-proportion="0.8865815" vertical-offset="1665" max-vertical-offset="2370">
+        <state line="69" column="0" selection-start="1762" selection-end="1762" vertical-scroll-proportion="0.83865815" vertical-offset="510" max-vertical-offset="2370">
           <folding />
         </state>
       </provider>

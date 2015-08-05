@@ -52,7 +52,7 @@ require 'rubygems'
 
     #set the model
 
-    if Mlb empty?
+    if Mlb.empty?
       @mlb = Mlb.new
       @mlb.team = @mlbteams
       @mlb.save
@@ -146,7 +146,7 @@ task mlb_compare: :environment do
     end
   end
 end
-    
+
 end
 
 
