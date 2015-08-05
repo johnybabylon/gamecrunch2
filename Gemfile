@@ -20,6 +20,8 @@ gem 'bootstrap-sass'
 
 gem 'rails_12factor'
 
+gem 'newrelic_rpm'
+
 gem 'twilio-ruby', '~> 3.12'
 
 gem 'dynamic_form'
